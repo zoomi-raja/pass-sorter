@@ -7,9 +7,7 @@
  * Git: https://github.com/zoomi-raja
  */
 
-include_once 'vendor/autoload.php';
-
-$passes = [];
+/** @var sample $data */
 $data = [
     [
          "type" => "train",
@@ -48,19 +46,20 @@ $data = [
          "counter" => "344"
     ]
 ];
-foreach ( $data as $pass){
-    $boringPass = \boardingpass\BoardingPassFactory::init($pass['type'],$pass);
-    if($boringPass) {
-        $passes[] = $boringPass;
-    }
-}
-/** @desc used spread operator to force Boardingpass type for this  $sorter */
-$sorter = new \sort\Sorter(...$passes);
-// shuffle data
-$sorter->shuffle();
-// sort passes
-$sorter->sortPasses();
 
-//get and return result
+$url = 'http://localhost/api/sorter.php';
+
+$data_json = json_encode($data);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data_json)));
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response  = curl_exec($ch);
+curl_close($ch);
+
 header('Content-Type: application/json');
-echo json_encode($sorter->result());
+echo  $response;
+die;
