@@ -11,6 +11,8 @@
 define('ROOT', dirname(__DIR__));
 define('SLASH', DIRECTORY_SEPARATOR);
 
+/** simple auto loader just to make sure each class is included as psr standard */
+
 spl_autoload_register(function ($className)
 {
     $fileName = sprintf("%s%svendor%s%s.php", ROOT, SLASH, SLASH, str_replace("\\", "/", $className));

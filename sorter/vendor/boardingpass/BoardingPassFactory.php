@@ -9,16 +9,18 @@
 
 namespace boardingpass;
 
-
+/** creational factory pattern to dynamically create instance of our boarding pass*/
 class BoardingPassFactory
 {
-    public static function init($name,$data){
+    public static function init($name,$data): BoardingPass{
         $class = 'boardingpass\passes\\'.ucfirst($name);
         $data  = $data;
-//        try {
-            return new $class();
-//        }catch(\Error $e){
-//            return false;
-//        }
+        try {
+            $pass = new $class();
+            $pass->setInfo($data);
+            return $pass;
+        }catch(\Error $e){
+            return false;
+        }
     }
 }

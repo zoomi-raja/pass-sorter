@@ -12,5 +12,9 @@ namespace boardingpass;
 
 abstract class BoardingPass implements BoardingPassInterface
 {
-    abstract function setInfo();
+    abstract public function setInfo(array $data );
+    //** instead of writing in each drived class better add here */
+    public function setSeatInfo(string $seat){
+        return ($seat == '')?' No seat assignment.':" Sit in seat {$seat}.";
+    }
 }

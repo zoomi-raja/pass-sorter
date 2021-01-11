@@ -12,13 +12,18 @@ namespace boardingpass\passes;
 class Bus extends \boardingpass\BoardingPass
 {
 
-    function setInfo()
+    /** parse data*/
+    public $number, $from, $to, $seat;
+    function setInfo(array $data)
     {
-        // TODO: Implement setInfo() method.
+        $this->to       = $data['to'];
+        $this->from     = $data['from'];
+        $this->seat     = ($data['seat'])?:'';
+        $this->number   = $data['number'];
     }
 
     public function __toString()
     {
-        return '';
+        return "Take the {$this->number} bus from {$this->from} to {$this->to}.{$this->setSeatInfo($this->seat)}";
     }
 }

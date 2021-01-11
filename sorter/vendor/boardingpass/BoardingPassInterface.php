@@ -9,6 +9,7 @@
 
 namespace boardingpass;
 
+/** will be helpful when we will print pass information*/
 interface BoardingPassInterface {
     public function __toString();
 }

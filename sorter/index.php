@@ -50,10 +50,11 @@ $data = [
 ];
 foreach ( $data as $pass){
     $boringPass = \boardingpass\BoardingPassFactory::init($pass['type'],$pass);
-    var_dump($boringPass);
     if($boringPass) {
         $passes[] = $boringPass;
     }
 }
-var_dump($passes);
+foreach($passes as $pass){
+    echo $pass;
+};
 echo 'api';

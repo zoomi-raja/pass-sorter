@@ -11,14 +11,18 @@ namespace boardingpass\passes;
 
 class Train extends \boardingpass\BoardingPass
 {
-    function setInfo()
+    /** parse data it seems like we dont have gate  and couter for train*/
+    public $number, $from, $to, $seat;
+    function setInfo(array $data)
     {
-        // TODO: Implement setInfo() method.
+        $this->to       = $data['to'];
+        $this->from     = $data['from'];
+        $this->seat     = ($data['seat'])?:'';
+        $this->number   = $data['number'];
     }
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
-        return '';
+        return "Take train {$this->seat} from {$this->from} to {$this->to}.{$this->setSeatInfo($this->seat)}";
     }
 }
