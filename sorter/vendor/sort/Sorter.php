@@ -25,7 +25,7 @@ class Sorter
     /**
      *@var $passes BoardingPass[]
      */
-    function __construct($passes) {
+    function __construct( BoardingPass ...$passes) {
         $this->passes = $passes;
     }
     /** as per documentation suffle method */

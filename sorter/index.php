@@ -54,7 +54,8 @@ foreach ( $data as $pass){
         $passes[] = $boringPass;
     }
 }
-$sorter = new \sort\Sorter($passes);
+/** @desc used spread operator to force Boardingpass type for this  $sorter */
+$sorter = new \sort\Sorter(...$passes);
 // shuffle data
 $sorter->shuffle();
 // sort passes
