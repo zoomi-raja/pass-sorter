@@ -1,0 +1,9 @@
+version: "2"
+services:
+  web:
+    build: ./sorter
+    container_name: sorter_api
+    ports:
+      - "80:80"
+    volumes:
+      - ./sorter:/var/www/html/
