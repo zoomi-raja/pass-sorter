@@ -12,7 +12,6 @@ namespace boardingpass\passes;
 class Airplane extends \boardingpass\BoardingPass
 {
     /** parse data*/
-    public $number, $from, $to, $seat, $gate, $counter;
     function setInfo(array $data)
     {
         $this->to       = $data['to'];

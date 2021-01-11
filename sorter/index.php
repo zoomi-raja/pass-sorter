@@ -54,5 +54,12 @@ foreach ( $data as $pass){
         $passes[] = $boringPass;
     }
 }
+$sorter = new \sort\Sorter($passes);
+// shuffle data
+$sorter->shuffle();
+// sort passes
+$sorter->sortPasses();
+
+//get and return result
 header('Content-Type: application/json');
-echo json_encode($passes);
+echo json_encode($sorter->result());

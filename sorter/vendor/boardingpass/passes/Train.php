@@ -12,7 +12,6 @@ namespace boardingpass\passes;
 class Train extends \boardingpass\BoardingPass
 {
     /** parse data it seems like we dont have gate  and couter for train*/
-    public $number, $from, $to, $seat;
     function setInfo(array $data)
     {
         $this->to       = $data['to'];

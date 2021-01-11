@@ -12,6 +12,8 @@ namespace boardingpass;
 
 abstract class BoardingPass implements \JsonSerializable
 {
+    public $number, $from, $to, $seat, $gate, $counter;
+
     abstract public function setInfo(array $data );
     //** instead of writing in each drived class better add here */
     public function setSeatInfo(string $seat){

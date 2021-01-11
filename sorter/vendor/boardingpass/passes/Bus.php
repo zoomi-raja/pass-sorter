@@ -13,7 +13,6 @@ class Bus extends \boardingpass\BoardingPass
 {
 
     /** parse data*/
-    public $number, $from, $to, $seat;
     function setInfo(array $data)
     {
         $this->to       = $data['to'];
