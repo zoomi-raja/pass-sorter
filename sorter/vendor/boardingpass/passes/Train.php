@@ -21,7 +21,7 @@ class Train extends \boardingpass\BoardingPass
         $this->number   = $data['number'];
     }
 
-    public function __toString()
+    public function jsonSerialize()
     {
         return "Take train {$this->seat} from {$this->from} to {$this->to}.{$this->setSeatInfo($this->seat)}";
     }

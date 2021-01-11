@@ -23,7 +23,7 @@ class Airplane extends \boardingpass\BoardingPass
         $this->counter  = $data['counter'];
     }
 
-    public function __toString()
+    public function jsonSerialize()
     {
         $result = "From {$this->from}, take {$this->number} to {$this->to}. Gate {$this->gate}, seat {$this->seat}.";
         $result .= (!$this->counter)?' Baggage will we automatically transferred from your last leg.':" Baggage drop at ticket counter {$this->counter}.";

@@ -10,7 +10,7 @@
 namespace boardingpass;
 
 
-abstract class BoardingPass implements BoardingPassInterface
+abstract class BoardingPass implements \JsonSerializable
 {
     abstract public function setInfo(array $data );
     //** instead of writing in each drived class better add here */

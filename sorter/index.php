@@ -54,7 +54,5 @@ foreach ( $data as $pass){
         $passes[] = $boringPass;
     }
 }
-foreach($passes as $pass){
-    echo $pass;
-};
-echo 'api';
+header('Content-Type: application/json');
+echo json_encode($passes);
