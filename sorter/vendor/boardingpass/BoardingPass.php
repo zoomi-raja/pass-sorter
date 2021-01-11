@@ -14,8 +14,13 @@ abstract class BoardingPass implements \JsonSerializable
 {
     public $number, $from, $to, $seat, $gate, $counter;
 
+    /**
+     * @param array $data
+     * @return mixed
+     */
     abstract public function setInfo(array $data );
-    //** instead of writing in each drived class better add here */
+
+    /** instead of writing in each drived class better add here */
     public function setSeatInfo(string $seat){
         return ($seat == '')?' No seat assignment.':" Sit in seat {$seat}.";
     }

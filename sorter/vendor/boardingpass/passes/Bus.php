@@ -12,7 +12,10 @@ namespace boardingpass\passes;
 class Bus extends \boardingpass\BoardingPass
 {
 
-    /** parse data*/
+    /**
+     * @param array $data
+     * @description parse data
+     */
     function setInfo(array $data)
     {
         $this->to       = $data['to'];
@@ -21,6 +24,9 @@ class Bus extends \boardingpass\BoardingPass
         $this->number   = $data['number'];
     }
 
+    /**
+     * @return mixed|string
+     */
     public function jsonSerialize()
     {
         return "Take the {$this->number} bus from {$this->from} to {$this->to}.{$this->setSeatInfo($this->seat)}";

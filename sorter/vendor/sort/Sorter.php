@@ -28,7 +28,11 @@ class Sorter
     function __construct( BoardingPass ...$passes) {
         $this->passes = $passes;
     }
-    /** as per documentation suffle method */
+
+
+    /**
+     * @desc as per document requirement shuffle method
+     */
     public function shuffle(){
         shuffle($this->passes);
     }
@@ -69,6 +73,9 @@ class Sorter
         }
     }
 
+    /**
+     * @return array|BoardingPass[]
+     */
     public function result(){
         if(count($this->passes)>0){
             return $this->passes;
